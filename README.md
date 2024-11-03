@@ -1,18 +1,32 @@
 # Disseny-DDBB
 
-Per aquesta pràctica hem hagut de dissenyar una base de dades de model d'entitat-relació sobre l'enunciat de la pràctica.
+Per aquesta pràctica hem tingut que dissenyar una base de dades amb el model entitat-relació sobre l'enunciat de la pràctica.
 
 Així és com ens ha quedat el resultat final:
 ![alt text](image.png)
 
-A partir de l'enunciat, hem fet les següents entitats (on cadascuna té els seus atributs):
+A partir de l'enunciat, hem trobat les següents entitats (on cadascuna té els seus atributs):
+
 1) RECINTES
+     (nom, m2_escenari, m2_zona_espectadors, disponibilitat_de_lavabos, escenari_cobert_o_no)
+   
 2) CONCERTS
+     (data, hora_inici, hora_fi, preu_contractació)
+   
 3) GRUPS
+     (nom, país, nº_components)
+   
 4) PARCEL·LES
+     (id_parcela, numero, preu, m2)
+   
 5) CARRERS
+     (codi, nom_grup)
+   
 6) PERSONES (amb dos subentitats: PÚBLIC i RESPONSABLES)
+     (usuari, mail, contrassenya, DNI, dades_personals)
+      
 7) ACCÉS
+     (data, hora, tipus)
 
 Aspectes a destacar
 -------------------
@@ -26,5 +40,6 @@ Aspectes a destacar
 - PARCEL·LES té una relació 1 - 1 amb RESPONSABLES (subentitat de PERSONES), ja que un responsable lloga una parcel·la.
 - CARRERS té com a clau primària el codi, ja que un carrer és identificat pel seu codi.
 - PERSONES té com a clau primària usuari, perquè és l'usuari qui identifica a la persona.
+- PERSONES té una relació especial amb el seu atribut dades_personals ja que està associat a les persones registrades.
 - PERSONES té dos subentitats: PÚBLIC i RESPONSABLES, on públic és els espectadors que hi van al concert i responsables qui lloguen la parcel·la. I és disjunta i parcial, disjunta perquè només poden tenir una especialització, i parcial perquè no hi són tots els tipus de persones que hi poden haver.
 - ACCÉS té una relació N - 1 amb RECINTES, perquè hi poden haver molts registres en un recinte.
